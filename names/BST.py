@@ -20,9 +20,6 @@ class BSTNode:
                     self.right.insert(value)
                 else:
                     self.right = BSTNode(value)
-        
-    
-      
 
     # Return True if the tree contains the value
     # False if it does not
