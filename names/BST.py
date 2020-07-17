@@ -7,17 +7,22 @@ class BSTNode:
 
     # Insert the given value into the tree
     def insert(self, value):
-        new_node = BSTNode(value)
-        if value < self.value:              # RECURSION BASE TEST #
-            if self.left is None:
-                self.left = new_node
-            else:                                   # RESTART FUNCTION #
-                self.left.insert(value)
-        else:                               # OTHER RECURSION TEST #
-            if self.right is None:           
-                self.right = new_node
+        if self is None:
+            self = BSTNode(value)
+        else:
+            if value < self.value:
+                if self.left:
+                    self.left.insert(value)
+                else:
+                    self.left = BSTNode(value)
             else:
-                self.right.insert(value)            # RESTART FUNCTION #
+                if self.right:
+                    self.right.insert(value)
+                else:
+                    self.right = BSTNode(value)
+        
+    
+      
 
     # Return True if the tree contains the value
     # False if it does not
